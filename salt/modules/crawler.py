@@ -18,14 +18,15 @@ def __virtual__():
     return 'crawler'
 
 
-def download(urls=None, wait=0, random_wait=False):
+def fetch(urls=None, wait=0, random_wait=False):
     '''
-    Download a URL
+    Fetch a URL
 
     CLI Example::
 
-        salt myminion crawler.download http://www.mydomain.com/
+        salt myminion crawler.fetch http://www.mydomain.com/
     '''
+    log.debug(urls)
     ret = {}
     if type(urls) is str:
         ret[urls] = _query(urls)
